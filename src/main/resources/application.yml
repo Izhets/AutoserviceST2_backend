@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-autoserviceST2-app
+  datasource:
+    url: jdbc:postgresql://localhost:5433/autoservice_st2
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+    hikari:
+      schema: autoservice_st2
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+
+openapi:
+  server:
+    url: ${OPENAPI_SERVER_URL:http://localhost:8118}
+  info:
+    title: API документация
+    description: API документация backend приложения для парковок
+
+
+token:
+  issuer: ${TOKEN_ISSUER:http://localhost:8118/auth}
+  secret: ${TOKEN_SECRET:f791e522-f5c4-41e4-a7a3-d5466edbb3c1}
+  expiresIn: ${TOKEN_EXPIRES_IN:86400}
+
+springdoc:
+  show-login-endpoint: true
+  writer-with-order-by-keys: true
