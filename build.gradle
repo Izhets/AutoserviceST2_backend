@@ -47,5 +47,4 @@ dependencies {
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.1.Final'
 
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
-
 }
