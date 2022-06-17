@@ -2,7 +2,7 @@ package ru.cs.vsu.ast2_backend.model.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.cs.vsu.ast2_backend.model.car.CarEntity;
+import ru.cs.vsu.ast2_backend.model.entity.car.CarEntity;
 
 import javax.persistence.*;
 import java.util.List;

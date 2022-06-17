@@ -1,4 +1,4 @@
-package ru.cs.vsu.ast2_backend.model.car;
+package ru.cs.vsu.ast2_backend.model.entity.car;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +27,10 @@ public class CarEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserEntity owner;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "type_id")
+    private CarTypeEntity type;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "model_id")

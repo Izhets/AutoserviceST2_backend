@@ -1,4 +1,4 @@
-package ru.cs.vsu.ast2_backend.model.car;
+package ru.cs.vsu.ast2_backend.model.entity.car;
 
 import lombok.Getter;
 import lombok.Setter;

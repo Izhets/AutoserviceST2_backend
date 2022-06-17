@@ -29,7 +29,6 @@ openapi:
     title: API документация
     description: API документация backend приложения для парковок
 
-
 token:
   issuer: ${TOKEN_ISSUER:http://localhost:8118/auth}
   secret: ${TOKEN_SECRET:f791e522-f5c4-41e4-a7a3-d5466edbb3c1}
