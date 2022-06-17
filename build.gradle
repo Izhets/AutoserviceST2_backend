@@ -6,7 +6,7 @@ plugins {
 
 group = 'ru.cs.vsu.ast2_backend'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
