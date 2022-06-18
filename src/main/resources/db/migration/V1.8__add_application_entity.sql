@@ -1,17 +1,4 @@
-create table if not exists part_category
-(
-    id   uuid primary key default gen_random_uuid(),
-    name varchar(255) unique not null
-    );
-
-create table if not exists part
-(
-    id       uuid primary key default gen_random_uuid(),
-    name     varchar(255) not null,
-    category_id uuid         not null references part_category on delete cascade on update cascade
-    );
-
-create table if not exists part_on_car
+create table if not exists application
 (
     id       uuid primary key default gen_random_uuid(),
     description     varchar(255),
