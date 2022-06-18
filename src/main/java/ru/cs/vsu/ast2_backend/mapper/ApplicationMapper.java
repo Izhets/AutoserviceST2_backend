@@ -14,6 +14,7 @@ public interface ApplicationMapper {
 
     List<ApplicationDto> toDto(List<ApplicationEntity> entities);
 
+    @Mapping(source = "ownerId", target = "owner.id")
     ApplicationEntity toEntity(ApplicationDto dto);
 
     @Mapping(target = "id", ignore = true)

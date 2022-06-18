@@ -28,7 +28,7 @@ public class ApplicationEntity {
     private String status;
 
     @Column(name = "price")
-    private String price;
+    private Integer price;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
