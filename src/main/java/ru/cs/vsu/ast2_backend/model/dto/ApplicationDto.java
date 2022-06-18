@@ -19,4 +19,5 @@ public class ApplicationDto {
     private String price;
     private UUID ownerId;
     private PartDto part;
+    private PartCategoryDto partCategory;
 }
