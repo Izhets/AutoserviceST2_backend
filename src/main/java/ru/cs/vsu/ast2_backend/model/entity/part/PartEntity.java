@@ -1,7 +1,8 @@
-package ru.cs.vsu.ast2_backend.model.entity.car;
+package ru.cs.vsu.ast2_backend.model.entity.part;
 
 import lombok.Getter;
 import lombok.Setter;
+import ru.cs.vsu.ast2_backend.model.entity.car.PartOnCarEntity;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,8 +11,8 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "car_model")
-public class CarModelEntity {
+@Table(name = "part")
+public class PartEntity {
 
     @Id
     @GeneratedValue
@@ -22,12 +23,9 @@ public class CarModelEntity {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "brand_id")
-    private CarBrandEntity brand;
+    @JoinColumn(name = "category_id")
+    private PartCategoryEntity category;
 
-    @OneToMany(mappedBy = "model", fetch = FetchType.LAZY)
-    private List<CarEntity> cars;
-
-    @OneToMany(mappedBy = "model", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "part", fetch = FetchType.LAZY)
     private List<PartOnCarEntity> carPart;
 }
