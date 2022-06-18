@@ -5,7 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.cs.vsu.ast2_backend.exception.NotFoundException;
 import ru.cs.vsu.ast2_backend.mapper.CarModelMapper;
+import ru.cs.vsu.ast2_backend.model.dto.CarBrandDto;
 import ru.cs.vsu.ast2_backend.model.dto.CarModelDto;
+import ru.cs.vsu.ast2_backend.model.entity.car.CarModelEntity;
 import ru.cs.vsu.ast2_backend.repository.CarModelRepository;
 
 import java.util.List;
@@ -22,10 +24,17 @@ public class CarModelService {
     private final CarBrandService carBrandService;
 
     public List<CarModelDto> getAllCarModels() {
-        return carModelRepository.findAll()
-                .stream()
-                .map(carModelMapper::toDto)
-                .collect(Collectors.toList());
+        List<CarModelEntity> carModelEntities = carModelRepository.findAll();
+        return carModelEntities.stream().
+                map(x -> CarModelDto.builder()
+                        .id(x.getId())
+                        .name(x.getName())
+                        .brand(
+                                CarBrandDto.builder()
+                                .id(x.getBrand().getId())
+                                .name(x.getBrand().getName())
+                                .build())
+                        .build()).collect(Collectors.toList());
     }
 
     public List<CarModelDto> getModelsByBrandId(UUID brandId) {
