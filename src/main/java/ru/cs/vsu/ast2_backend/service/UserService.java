@@ -55,7 +55,7 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public void withdrawMoney(Integer sum) {
+    public UserDto withdrawMoney(Integer sum) {
         var userEntity = getProfileEntity();
         if (userEntity.getMoney() < sum) {
             throw new BadRequestException("Insufficient funds");
@@ -64,6 +64,8 @@ public class UserService {
         userEntity.setMoney(userEntity.getMoney() - sum);
 
         userRepository.save(userEntity);
+
+        return userMapper.toDto(userEntity);
     }
 
     public String replenishBalance(ReplenishBalanceRequestDto requestDto) {

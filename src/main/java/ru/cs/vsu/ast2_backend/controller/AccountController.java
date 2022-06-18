@@ -42,4 +42,11 @@ public class AccountController {
         return ResponseEntity.ok(userService.replenishBalance(requestDto));
     }
 
+    @PostMapping("/withdrawMoney/{price}")
+    @RolesAllowed("pk-user")
+    @Operation(summary = "Оплатить баланс", description = "Доступ: pk-user")
+    public ResponseEntity<UserDto> withdrawMoney(@PathVariable Integer price) {
+        return ResponseEntity.ok(userService.withdrawMoney(price));
+    }
+
 }
