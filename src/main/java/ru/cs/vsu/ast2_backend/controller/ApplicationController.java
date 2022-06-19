@@ -47,7 +47,7 @@ public class ApplicationController {
 
     @PutMapping("/{id}")
     @RolesAllowed("pk-user")
-    @Operation(summary = "Обновление заявки", description = "Доступ: pk-admin")
+    @Operation(summary = "Обновление заявки", description = "Доступ: pk-user")
     public ResponseEntity<ApplicationDto> updateApplication(@PathVariable UUID id,
                                             @RequestBody @Valid ApplicationDto applicationDto) {
         return new ResponseEntity<>(applicationService.updateApplication(id, applicationDto), HttpStatus.CREATED);
